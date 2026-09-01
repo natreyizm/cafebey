@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CafeBey</title>
+  <meta name="description" content="CafeBey — Bağlar, Diyarbakır'da kahve ve keyifli anlar için modern bir kafe deneyimi." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CafeBey | Bağlar, Diyarbakır" />
+  <meta property="og:description" content="CafeBey — Bağlar, Diyarbakır'da kahve ve keyifli anlar için modern bir kafe deneyimi." />
+  <meta property="og:locale" content="tr_TR" />
+
+  <!-- Favicon (DEMO IMAGE — işletmeden gerçek logo alındığında değiştirilecektir) -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="#top" class="navbar__logo">CafeBey</a>
+
+      <nav class="navbar__links" id="navLinks">
+        <a href="#top" class="nav-link">Ana Sayfa</a>
+        <a href="#hikaye" class="nav-link">Hikâyemiz</a>
+        <a href="#menu" class="nav-link">Menü</a>
+        <a href="#galeri" class="nav-link">Galeri</a>
+        <a href="#iletisim" class="nav-link">İletişim</a>
+      </nav>
+
+      <a href="#iletisim" class="btn btn--ghost navbar__cta">İletişime Geç</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#top" class="mobile-menu__link">Ana Sayfa</a>
+      <a href="#hikaye" class="mobile-menu__link">Hikâyemiz</a>
+      <a href="#menu" class="mobile-menu__link">Menü</a>
+      <a href="#galeri" class="mobile-menu__link">Galeri</a>
+      <a href="#iletisim" class="mobile-menu__link">İletişim</a>
+      <a href="#iletisim" class="btn btn--primary mobile-menu__cta">İletişime Geç</a>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <!-- DEMO IMAGE — CafeBey'in gerçek fotoğrafı değildir. İşletmeden alınan görsellerle değiştirilecektir. -->
+    <div class="hero__bg" id="heroBg" style="background-image: url('https://picsum.photos/seed/cafebey-hero/1920/1200');"></div>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <p class="eyebrow reveal">Bağlar • Diyarbakır</p>
+      <h1 class="hero__title reveal">CafeBey</h1>
+      <p class="hero__subtitle reveal">Kahvenin, sohbetin ve güzel anların buluştuğu yer.</p>
+      <p class="hero__note reveal">Günün en güzel molasını keşfet.</p>
+
+      <div class="hero__actions reveal">
+        <a href="#menu" class="btn btn--primary">Menüyü Keşfet</a>
+        <a id="heroDirections" href="#" target="_blank" rel="noopener" class="btn btn--outline">Yol Tarifi Al</a>
+      </div>
+
+      <p class="hero__demo-tag">Demo içerik — işletmeden alınacak gerçek bilgilerle güncellenecektir.</p>
+    </div>
+
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ============ HİKÂYEMİZ ============ -->
+  <section class="story" id="hikaye">
+    <div class="story__media reveal">
+      <!-- DEMO IMAGE -->
+      <img src="https://picsum.photos/seed/cafebey-story/1000/1200" alt="Kafe atmosferinden demo görsel" loading="lazy" />
+    </div>
+    <div class="story__content">
+      <span class="story__tag reveal">Demo İçerik</span>
+      <h2 class="reveal">Sadece bir kahve molası değil.</h2>
+      <p class="reveal">
+        CafeBey; sıcak bir sohbetin, sessiz bir çalışma anının ya da güne iyi başlamanın adresi
+        olmayı hedefliyor. Bu bölümdeki metin geçici bir demo içeriktir — işletmenin gerçek
+        hikâyesi teslim alındığında burada yayınlanacaktır.
+      </p>
+      <p class="story__placeholder reveal">Demo içerik — işletmeden alınacak gerçek bilgilerle güncellenecektir.</p>
+    </div>
+  </section>
+
+  <!-- ============ ÖNE ÇIKAN BANNER ============ -->
+  <section class="feature-banner" id="mola">
+    <!-- DEMO IMAGE -->
+    <div class="feature-banner__bg" style="background-image: url('https://picsum.photos/seed/cafebey-banner/1920/1000');"></div>
+    <div class="feature-banner__overlay"></div>
+    <div class="feature-banner__content reveal">
+      <h2>Bugün kendine güzel bir mola ver.</h2>
+      <p>Sıcak bir fincan, sakin bir köşe ve zamanın yavaşladığı bir an.</p>
+    </div>
+  </section>
+
+  <!-- ============ MENÜ ============ -->
+  <section class="menu" id="menu">
+    <div class="section-head">
+      <h2 class="reveal">Menüyü Keşfet</h2>
+      <p class="section-head__note reveal">Demo kategoriler ve ürünler — CafeBey'in güncel menüsü değildir.</p>
+    </div>
+
+    <div class="menu__tabs reveal" id="menuTabs" role="tablist" aria-label="Menü kategorileri"></div>
+    <div class="menu__grid" id="menuGrid"></div>
+  </section>
+
+  <!-- ============ GALERİ ============ -->
+  <section class="gallery" id="galeri">
+    <div class="section-head">
+      <h2 class="reveal">Galeri</h2>
+      <p class="section-head__note reveal">Demo görseller — CafeBey'in gerçek fotoğrafları teslim alındığında güncellenecektir.</p>
+    </div>
+
+    <div class="gallery__grid" id="galleryGrid"></div>
+  </section>
+
+  <!-- ============ YORUMLAR ============ -->
+  <section class="reviews">
+    <div class="reviews__card reveal">
+      <h2>Google Yorumları</h2>
+      <p>Google'daki gerçek müşteri yorumları işletme onayından sonra burada gösterilecektir.</p>
+    </div>
+  </section>
+
+  <!-- ============ İLETİŞİM ============ -->
+  <section class="contact" id="iletisim">
+    <div class="section-head">
+      <h2 class="reveal">İletişim</h2>
+      <p class="section-head__note reveal">Bize ulaşmanın en kolay yolu</p>
+    </div>
+
+    <div class="contact__grid">
+      <div class="contact__info reveal">
+        <h3>CafeBey</h3>
+        <p class="contact__line">Bağcılar, Bağlar / Diyarbakır</p>
+        <p class="contact__line">0505 073 57 93</p>
+
+        <div class="contact__block">
+          <h4>Çalışma Saatleri</h4>
+          <p>İşletmeden teyit edilerek eklenecek.</p>
+        </div>
+
+        <div class="contact__block">
+          <h4>Instagram</h4>
+          <p>Instagram hesabı işletmeden teyit edilerek eklenecek.</p>
+        </div>
+      </div>
+
+      <div class="contact__actions reveal">
+        <a href="tel:+905050735793" class="contact-btn" aria-label="CafeBey'i telefonla ara">
+          <span class="contact-btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </span>
+          <span>
+            <strong>Ara</strong>
+            <small>0505 073 57 93</small>
+          </span>
+        </a>
+
+        <a href="https://wa.me/905050735793" target="_blank" rel="noopener" class="contact-btn" aria-label="CafeBey'e WhatsApp'tan yaz">
+          <span class="contact-btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 8.8c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.8.1.1.1.3 0 .4-.1.2-.1.3-.3.5-.1.2-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.4.1.8-.1 1.2-.2.4-1.1 1-1.9 1-.7.1-1.4 0-2.6-.5-2.4-1-3.9-3.4-4-3.6-.1-.2-1-1.3-1-2.5 0-1.2.6-1.7.8-2z" fill="currentColor"/></svg>
+          </span>
+          <span>
+            <strong>WhatsApp</strong>
+            <small>Hemen yaz</small>
+          </span>
+        </a>
+
+        <a id="contactDirections" href="#" target="_blank" rel="noopener" class="contact-btn" aria-label="CafeBey'e yol tarifi al">
+          <span class="contact-btn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-11.5A7 7 0 0 0 5 9.5C5 14.5 12 21 12 21z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.3" stroke="currentColor" stroke-width="1.5"/></svg>
+          </span>
+          <span>
+            <strong>Yol Tarifi</strong>
+            <small>Haritada gör</small>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="map-embed reveal" aria-hidden="true">
+      <div class="map-embed__inner">
+        <p>Harita önizlemesi — "Yol Tarifi" butonuna dokunarak Google Maps'te açabilirsiniz.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <p class="footer__logo">CafeBey</p>
+        <p>Bağlar / Diyarbakır</p>
+        <p>0505 073 57 93</p>
+      </div>
+
+      <nav class="footer__links" aria-label="Alt menü">
+        <a href="#top">Ana Sayfa</a>
+        <a href="#hikaye">Hikâyemiz</a>
+        <a href="#menu">Menü</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+
+      <div class="footer__social">
+        <span>Instagram — işletmeden teyit edilecek.</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 CafeBey. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING WHATSAPP ============ -->
+  <a href="https://wa.me/905050735793" target="_blank" rel="noopener" class="fab-whatsapp" aria-label="WhatsApp'tan yazın">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" stroke="currentColor" stroke-width="1.5"/><path d="M8.5 8.8c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.8.1.1.1.3 0 .4-.1.2-.1.3-.3.5-.1.2-.3.3-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.4.1.8-.1 1.2-.2.4-1.1 1-1.9 1-.7.1-1.4 0-2.6-.5-2.4-1-3.9-3.4-4-3.6-.1-.2-1-1.3-1-2.5 0-1.2.6-1.7.8-2z" fill="currentColor"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
