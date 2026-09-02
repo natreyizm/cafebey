@@ -266,28 +266,89 @@ button:focus-visible {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-.mobile-menu {
+/* Menü açıkken hamburger, panel içindeki X butonuyla çakışmasın diye gizlenir */
+body.mobile-menu-open .hamburger {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mobile-menu-overlay {
   position: fixed;
   inset: 0;
+  background: rgba(10, 8, 6, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 97;
+}
+
+.mobile-menu-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100dvh;
+  max-height: 100dvh;
   background: var(--ink);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 26px;
   padding: 0 var(--pad);
+  padding-top: max(env(safe-area-inset-top), 20px);
+  padding-bottom: env(safe-area-inset-bottom);
   transform: translateY(-100%);
   opacity: 0;
   transition: transform 0.5s var(--ease), opacity 0.4s ease;
   pointer-events: none;
-  z-index: 99;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  z-index: 98;
 }
 
 .mobile-menu.is-open {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
+}
+
+.mobile-menu__close {
+  align-self: flex-end;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--cream);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s var(--ease);
+}
+
+.mobile-menu__close:hover {
+  border-color: var(--brass);
+  color: var(--brass);
+  transform: rotate(90deg);
+}
+
+.mobile-menu__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 26px;
+  padding-bottom: 40px;
 }
 
 .mobile-menu__link {

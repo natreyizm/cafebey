@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CafeBey</title>
+  <title>CafeBey | Bağlar, Diyarbakır</title>
   <meta name="description" content="CafeBey — Bağlar, Diyarbakır'da kahve ve keyifli anlar için modern bir kafe deneyimi." />
 
   <!-- Open Graph -->
@@ -44,14 +44,23 @@
       </button>
     </div>
 
+    <!-- Mobile menu overlay (arka planı karartır, tıklanınca menüyü kapatır) -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" hidden></div>
+
     <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#top" class="mobile-menu__link">Ana Sayfa</a>
-      <a href="#hikaye" class="mobile-menu__link">Hikâyemiz</a>
-      <a href="#menu" class="mobile-menu__link">Menü</a>
-      <a href="#galeri" class="mobile-menu__link">Galeri</a>
-      <a href="#iletisim" class="mobile-menu__link">İletişim</a>
-      <a href="#iletisim" class="btn btn--primary mobile-menu__cta">İletişime Geç</a>
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobil navigasyon menüsü">
+      <button class="mobile-menu__close" id="mobileMenuClose" aria-label="Menüyü kapat">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <nav class="mobile-menu__nav" aria-label="Mobil menü bağlantıları">
+        <a href="#top" class="mobile-menu__link">Ana Sayfa</a>
+        <a href="#hikaye" class="mobile-menu__link">Hikâyemiz</a>
+        <a href="#menu" class="mobile-menu__link">Menü</a>
+        <a href="#galeri" class="mobile-menu__link">Galeri</a>
+        <a href="#iletisim" class="mobile-menu__link">İletişim</a>
+        <a href="#iletisim" class="btn btn--primary mobile-menu__cta">İletişime Geç</a>
+      </nav>
     </div>
   </header>
 

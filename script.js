@@ -26,6 +26,8 @@
   var navbar = document.getElementById("navbar");
   var hamburger = document.getElementById("hamburger");
   var mobileMenu = document.getElementById("mobileMenu");
+  var mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+  var mobileMenuClose = document.getElementById("mobileMenuClose");
 
   function updateNavbarState() {
     if (window.scrollY > 40) {
@@ -37,23 +39,95 @@
   updateNavbarState();
   window.addEventListener("scroll", updateNavbarState, { passive: true });
 
-  function toggleMobileMenu(forceClose) {
-    var willOpen = forceClose ? false : !mobileMenu.classList.contains("is-open");
-    mobileMenu.classList.toggle("is-open", willOpen);
-    hamburger.setAttribute("aria-expanded", String(willOpen));
-    document.body.style.overflow = willOpen ? "hidden" : "";
+  // Menü açıkken arka sayfanın scroll edilmesini engellemek için
+  // (iOS/Android'de "overflow:hidden" tek başına yeterli olmadığından
+  // sayfayı geçici olarak position:fixed yapıp scroll konumunu koruyoruz).
+  var lockedScrollY = 0;
+
+  function lockBodyScroll() {
+    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+    document.body.style.position = "fixed";
+    document.body.style.top = "-" + lockedScrollY + "px";
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    document.body.classList.add("mobile-menu-open");
+  }
+
+  function unlockBodyScroll() {
+    document.body.classList.remove("mobile-menu-open");
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    window.scrollTo(0, lockedScrollY);
+  }
+
+  function isMobileMenuOpen() {
+    return mobileMenu.classList.contains("is-open");
+  }
+
+  function openMobileMenu() {
+    if (isMobileMenuOpen()) return;
+    mobileMenu.classList.add("is-open");
+    mobileMenuOverlay.classList.add("is-open");
+    mobileMenuOverlay.hidden = false;
+    hamburger.setAttribute("aria-expanded", "true");
+    lockBodyScroll();
+    // Odağı kapatma butonuna taşı (klavye/ekran okuyucu erişilebilirliği)
+    if (mobileMenuClose) mobileMenuClose.focus();
+  }
+
+  function closeMobileMenu() {
+    if (!isMobileMenuOpen()) return;
+    mobileMenu.classList.remove("is-open");
+    mobileMenuOverlay.classList.remove("is-open");
+    hamburger.setAttribute("aria-expanded", "false");
+    unlockBodyScroll();
+    hamburger.focus();
+    // Overlay'i geçiş animasyonu bittikten sonra tamamen gizle
+    window.setTimeout(function () {
+      if (!isMobileMenuOpen()) mobileMenuOverlay.hidden = true;
+    }, 400);
+  }
+
+  function toggleMobileMenu() {
+    if (isMobileMenuOpen()) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
   }
 
   if (hamburger) {
-    hamburger.addEventListener("click", function () {
-      toggleMobileMenu(false);
-    });
+    hamburger.addEventListener("click", toggleMobileMenu);
   }
 
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener("click", closeMobileMenu);
+  }
+
+  if (mobileMenuOverlay) {
+    mobileMenuOverlay.addEventListener("click", closeMobileMenu);
+  }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && isMobileMenuOpen()) {
+      closeMobileMenu();
+    }
+  });
+
   document.querySelectorAll(".mobile-menu__link, .mobile-menu__cta").forEach(function (link) {
-    link.addEventListener("click", function () {
-      toggleMobileMenu(true);
-    });
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  // Ekran 860px üzerine büyütülürse (ör. tablet yatay/masaüstü) menü açık
+  // kalmışsa temiz bir şekilde kapatıp scroll kilidini kaldır.
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 860 && isMobileMenuOpen()) {
+      closeMobileMenu();
+    }
   });
 
   /* ------------------------------------------------------------------ */
